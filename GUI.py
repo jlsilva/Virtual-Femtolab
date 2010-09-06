@@ -430,9 +430,10 @@ class VFFrame(wx.Frame):
         self.SchematicPanel.Refresh() #trigger paint event
         
         #if estimatives window is open, update it
-        if(not self.estimatives_dialog is None):
-            self.estimatives_dialog.set_pulseBeam(self.propagator.get_pulseBeam())
-            self.estimatives_dialog.update_estimatives()
+        if hasattr(self,"estimatives_dialog"):
+            if(not self.estimatives_dialog is None):
+                self.estimatives_dialog.set_pulseBeam(self.propagator.get_pulseBeam())
+                self.estimatives_dialog.update_estimatives()
         
         
        
